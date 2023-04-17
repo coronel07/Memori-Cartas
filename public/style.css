@@ -1,0 +1,42 @@
+.container {
+	display: flex;
+	background-color: sandybrown;
+	padding: 20px;
+	height: 70px;
+	border: 2px solid black;
+	position: relative; 
+  }
+  
+  .avatar-container {
+	margin-right: 510px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100%;
+  }
+  
+  .avatar-container img {
+	width: 100px;
+	height: 100px;
+	object-fit: cover;
+  }
+  
+  .avatar-container p {
+	margin-top: 10px;
+	font-size: 14px;
+	color: black;
+	display:inline-block; 
+  }
+
+  .line {
+	position: absolute;
+	top: 0;
+	left: 50%;
+	transform: rotate(180deg); /* Rotate the line 90 degrees */
+	transform-origin: center center; /* Set the origin of the rotation to the center */
+	height: 100%;
+	width: 3px;
+	background-color: black;
+  }
+  
+  
