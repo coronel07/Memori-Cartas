@@ -1,3 +1,38 @@
+ejs
+const express = require('express');
+const bodyParser = require('body-parser');
+const morgan = require('morgan');
+const path = require('path');
+const ejs = require('ejs');
+const app = express();
+const port = 2500;
+
+app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname, 'views'));
+
+/* MIDDLEWARES */
+app.use(morgan('dev'));
+app.use(express.json());
+
+//Configurando archivos estáticos
+app.use(express.urlencoded({ extended: true }));
+app.use(express.static(path.join(__dirname, 'public')));
+
+app.get('/', (req, res) => {
+    res.render("index");
+
+});
+
+const contarTiempo = (segundos) => new Promise(resolve => setTimeout(resolve, segundos * 1000));
+// Ejemplo de uso:
+contarTiempo(5).then(() => console.log(`Han pasado 5 segundos`));
+
+app.listen(port, () => {
+    console.log(`Example app listening on port ${port}`);
+});
+
+
+css
 body{
 	background-color: bisque;
 }
@@ -105,3 +140,39 @@ select {
 	outline: none;
   }
   
+
+
+
+  js
+
+  const express = require('express');
+const bodyParser = require('body-parser');
+const morgan = require('morgan');
+const path = require('path');
+const ejs = require('ejs');
+const app = express();
+const port = 2500;
+
+app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname, 'views'));
+
+/* MIDDLEWARES */
+app.use(morgan('dev'));
+app.use(express.json());
+
+//Configurando archivos estáticos
+app.use(express.urlencoded({ extended: true }));
+app.use(express.static(path.join(__dirname, 'public')));
+
+app.get('/', (req, res) => {
+    res.render("index");
+
+});
+
+const contarTiempo = (segundos) => new Promise(resolve => setTimeout(resolve, segundos * 1000));
+// Ejemplo de uso:
+contarTiempo(5).then(() => console.log(`Han pasado 5 segundos`));
+
+app.listen(port, () => {
+    console.log(`Example app listening on port ${port}`);
+});
