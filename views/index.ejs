@@ -6,7 +6,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="style.css">
-	<title>Document</title>
+	<title>Memory</title>
 </head>
 
 <body>
@@ -14,7 +14,7 @@
 		<div class="inner1">
 			<img src="/img/avatar.png" alt="Avatar">
 			<div class="avatar-info">
-				<h2>Player 1</h2>
+				<h2 id="player1-name">Jugador 1</h2>
 				<p>Puntaje: X puntos</p>
 			</div>
 		</div>
@@ -24,15 +24,47 @@
 				<option value="opction2">World Cup</option>
 			</select>
 		</div>
+
 		<div class="inner2">
 			<img src="/img/avatar.png" alt="Avatar">
 			<div class="avatar-info">
-				<h2>Player 2</h2>
+				<h2 id="player2-name">Jugador 2</h2>
 				<p>Puntaje: X puntos</p>
 			</div>
 		</div>
-		
 	</div>
+
+	<div class="overlay">
+		<div class="popup">
+			<form id="player-form">
+				<label for="player1">Nombre del Jugador 1</label>
+				<input type="text" id="player1" name="player1">
+				<label for="player2">Nombre del Jugador 2</label>
+				<input type="text" id="player2" name="player2">
+				<button type="submit">Comenzar Juego</button>
+			</form>
+		</div>
+	</div>
+	<script>
+		const form = document.getElementById("player-form");
+		const player1Name = document.getElementById("player1-name");
+		const player2Name = document.getElementById("player2-name");
+
+		form.addEventListener("submit", (event) => {
+			event.preventDefault(); // evita que el formulario se envíe automáticamente
+
+			const player1Input = document.getElementById("player1");
+			const player2Input = document.getElementById("player2");
+
+			// actualiza los nombres de los jugadores con los valores del formulario
+			player1Name.innerText = player1Input.value;
+			player2Name.innerText = player2Input.value;
+
+			// cierra la ventana flotante
+			const overlay = document.querySelector(".overlay");
+			overlay.style.display = "none";
+		});
+	</script>
 	<main>
 		<div class="par-1">
 			<img src="/img/atras.png">
