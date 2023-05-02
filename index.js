@@ -18,8 +18,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, "public")));
 
-const dbURI =
-  "mongodb+srv://nikecolas:nicolas07-@cluster01.bm0bl64.mongodb.net/?retryWrites=true&w=majority";
+const dbURI ="mongodb+srv://nikecolas:nicolas07-@cluster01.bm0bl64.mongodb.net/?retryWrites=true&w=majority";
 
 mongoose
   .connect(dbURI, {

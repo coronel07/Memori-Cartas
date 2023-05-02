@@ -34,6 +34,82 @@
 		</div>
 	</div>
 
+
+
+	<div class="memory-game">
+		<div class="memory-card" data-framework="a">
+			<img class="back-face" src="img/a.png">
+			<img class="front-face" src="img/front.png">
+		</div>
+		<div class="memory-card" data-framework="b">
+			<img class="back-face" src="img/b.png">
+			<img class="front-face" src="img/front.png">
+		</div>
+		<div class="memory-card" data-framework="c">
+			<img class="back-face" src="img/c.png">
+			<img class="front-face" src="img/front.png">
+		</div>
+		<div class="memory-card" data-framework="d">
+			<img class="back-face" src="img/d.png">
+			<img class="front-face" src="img/front.png">
+		</div>
+		<div class="memory-card" data-framework="e">
+			<img class="back-face" src="img/e.png">
+			<img class="front-face" src="img/front.png">
+		</div>
+		<div class="memory-card" data-framework="f">
+			<img class="back-face" src="img/f.png">
+			<img class="front-face" src="img/front.png">
+		</div>
+		<div class="memory-card" data-framework="g">
+			<img class="back-face" src="img/g.png">
+			<img class="front-face" src="img/front.png">
+		</div>
+		<div class="memory-card" data-framework="h">
+			<img class="back-face" src="img/h.png">
+			<img class="front-face" src="img/front.png">
+		</div>
+		<div class="memory-card" data-framework="i">
+			<img class="back-face" src="img/i.png">
+			<img class="front-face" src="img/front.png">
+		</div>
+		<div class="memory-card" data-framework="a">
+			<img class="back-face" src="img/a.png">
+			<img class="front-face" src="img/front.png">
+		</div>
+		<div class="memory-card" data-framework="b">
+			<img class="back-face" src="img/b.png">
+			<img class="front-face" src="img/front.png">
+		</div>
+		<div class="memory-card" data-framework="c">
+			<img class="back-face" src="img/c.png">
+			<img class="front-face" src="img/front.png">
+		</div>
+		<div class="memory-card" data-framework="d">
+			<img class="back-face" src="img/d.png">
+			<img class="front-face" src="img/front.png">
+		</div>
+		<div class="memory-card" data-framework="e">
+			<img class="back-face" src="imfrontbg/e.png">
+			<img class="front-face" src="img/front.png">
+		</div>
+		<div class="memory-card" data-framework="f">
+			<img class="back-face" src="img/f.png">
+			<img class="front-face" src="img/front.png">
+		</div>
+		<div class="memory-card" data-framework="g">
+			<img class="back-face" src="img/g.png">
+			<img class="front-face" src="img/front.png">
+		</div>
+		<div class="memory-card" data-framework="h">
+			<img class="back-face" src="img/h.png">
+			<img class="front-face" src="img/front.png">
+		</div>
+		<div class="memory-card" data-framework="i">
+			<img class="back-face" src="img/i.png">
+			<img class="front-face" src="img/front.png">
+		</div>
+	</div>
 	<div class="overlay">
 		<div class="popup">
 			<form id="player-form">
@@ -63,65 +139,70 @@
 			// cierra la ventana flotante
 			const overlay = document.querySelector(".overlay");
 			overlay.style.display = "none";
+
+			// Aquí empieza la segunda función
+			const cards = document.querySelectorAll('.memory-card');
+
+			let hasFlippedCard = false;
+			let lockBoard = false;
+			let firstCard, secondCard;
+
+			function flipCard() {
+				if (lockBoard) return;
+				if (this === firstCard) return;
+
+				this.classList.add('is-flipped');
+
+				if (!hasFlippedCard) {
+					hasFlippedCard = true;
+					firstCard = this;
+					return;
+				}
+
+				secondCard = this;
+				checkForMatch();
+			}
+
+			function checkForMatch() {
+				let isMatch = firstCard.dataset.framework === secondCard.dataset.framework;
+
+				isMatch ? disableCards() : unflipCards();
+			}
+
+			function disableCards() {
+				firstCard.removeEventListener('click', flipCard);
+				secondCard.removeEventListener('click', flipCard);
+
+				resetBoard();
+			}
+
+			function unflipCards() {
+				lockBoard = true;
+
+				setTimeout(() => {
+					firstCard.classList.remove('is-flipped');
+					secondCard.classList.remove('is-flipped');
+
+					resetBoard();
+				}, 1500);
+			}
+
+			function resetBoard() {
+				[hasFlippedCard, lockBoard] = [false, false];
+				[firstCard, secondCard] = [null, null];
+			}
+
+			(function shuffle() {
+				cards.forEach(card => {
+					let randomPos = Math.floor(Math.random() * 18);
+					card.style.order = randomPos;
+				});
+			})();
+
+			cards.forEach(card => card.addEventListener('click', flipCard));
 		});
+
 	</script>
-	<main>
-		<div class="par-1">
-			<img src="/img/atras.png">
-		</div>
-		<div>
-			<img src="/img/atras.png">
-		</div>
-		<div class="par-2">
-			<img src="/img/atras.png">
-		</div>
-		<div>
-			<img src="/img/atras.png">
-		</div>
-		<div class="par-3">
-			<img src="/img/atras.png">
-		</div>
-		<div>
-			<img src="/img/atras.png">
-		</div>
-		<div class="par-4">
-			<img src="/img/atras.png">
-		</div>
-		<div>
-			<img src="/img/atras.png">
-		</div>
-		<div class="par-5">
-			<img src="/img/atras.png">
-		</div>
-		<div>
-			<img src="/img/atras.png">
-		</div>
-		<div class="par-6">
-			<img src="/img/atras.png">
-		</div>
-		<div>
-			<img src="/img/atras.png">
-		</div>
-		<div class="par-7">
-			<img src="/img/atras.png">
-		</div>
-		<div>
-			<img src="/img/atras.png">
-		</div>
-		<div class="par-8">
-			<img src="/img/atras.png">
-		</div>
-		<div>
-			<img src="/img/atras.png">
-		</div>
-		<div class="par-9">
-			<img src="/img/atras.png">
-		</div>
-		<div>
-			<img src="/img/atras.png">
-		</div>
-	</main>
-	</div>
 </body>
 
 </html>

@@ -2,6 +2,54 @@ body {
   background-color: bisque;
 }
 
+/* Define los estilos para la superposición de elementos */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.popup {
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.popup form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.popup label {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+
+.popup input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  border: none;
+  background-color: gainsboro;
+}
+
+.popup button {
+  padding: 10px 20px;
+  background-color: blue;
+  color: #fff;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+}
+
 /* Define un contenedor flex para el contenido */
 .contenido {
   width: 100%;
@@ -78,14 +126,62 @@ body {
 }
 
 /* Define un contenedor grid para el contenido */
-main {
-  max-width: max-content;
-  padding: 1rem;
+.memory-game {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  max-width: 960px;
   margin: 0 auto;
-  display: grid;
-  grid-template-columns: 120px 120px 120px 120px 120px 120px;
-  grid-template-rows: 154px 154px 154px 154px 154px;
-  grid-gap: 10px;
+  justify-content: center;
+}
+
+.memory-card {
+  width: 15%;
+  height: 0;
+  padding-bottom: 15%;
+  margin: 5px;
+  position: relative;
+  transform: scale(1);
+  transform-style: preserve-3d;
+  transition: transform 0.5s;
+}
+
+.memory-card:hover {
+  cursor: pointer;
+}
+
+.memory-card:active {
+  transform: scale(0.97);
+}
+
+.memory-card.is-flipped {
+  transform: rotateY(180deg);
+}
+
+.front-face,
+.back-face {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  backface-visibility: hidden;
+}
+
+.front-face {
+  transform: rotateY(0deg);
+}
+
+.back-face {
+  transform: rotateY(180deg);
+}
+
+.player-tab {
+  display: none;
+}
+
+#player1-tab {
+  display: block;
 }
 
 /* Agrega estilos para las imágenes dentro del contenedor grid */
@@ -108,52 +204,4 @@ select {
 select:hover,
 select:focus {
   outline: none;
-}
-
-/* Define los estilos para la superposición de elementos */
-.overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: none;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.popup {
-  background-color: white;
-  padding: 20px;
-  border-radius: 10px;
-}
-
-.popup form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.popup label {
-  font-size: 1.2rem;
-  margin-bottom: 10px;
-}
-
-.popup input {
-  width: 100%;
-  padding: 10px;
-  margin-bottom: 20px;
-  border-radius: 5px;
-  border: none;
-  background-color: gainsboro;
-}
-
-.popup button {
-  padding: 10px 20px;
-  background-color: blue;
-  color: #fff;
-  border-radius: 5px;
-  border: none;
-  cursor: pointer;
 }
