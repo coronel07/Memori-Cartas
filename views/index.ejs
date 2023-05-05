@@ -1,208 +1,220 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
-	<meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css">
 	<title>Memory</title>
+    <!-- Incluímos los estilos css necesarios -->
+    <%- include('fragments/css.ejs') %>
+        <title>ExpressJsBase</title>
 </head>
 
 <body>
-	<div class="contenido">
-		<div class="inner1">
-			<img src="/img/avatar.png" alt="Avatar">
-			<div class="avatar-info">
-				<h2 id="player1-name">Jugador 1</h2>
-				<p>Puntaje: X puntos</p>
-			</div>
-		</div>
-		<div class="medio">
-			<select>
-				<option value="opcion1">Hello Kytty</option>
-				<option value="opction2">World Cup</option>
-			</select>
-		</div>
+    <!-- Navbar del sitio -->
+    <%- include('fragments/navbar') %>
+        <!-- Fin del navbar del sitio -->
 
-		<div class="inner2">
-			<img src="/img/avatar.png" alt="Avatar">
-			<div class="avatar-info">
-				<h2 id="player2-name">Jugador 2</h2>
-				<p>Puntaje: X puntos</p>
-			</div>
-		</div>
-	</div>
+        <!-- Contenido principal -->
+        <div class="contenido">
+            <div class="inner1">
+                <img src="/img/avatar.png" alt="Avatar">
+                <div class="avatar-info">
+                    <h2 id="player1-name">Jugador 1</h2>
+                    <p>Puntaje: X puntos</p>
+                </div>
+            </div>
+            <div class="medio">
+                <select>
+                    <option value="opcion1">Hello Kytty</option>
+                    <option value="opction2">World Cup</option>
+                </select>
+            </div>
+
+            <div class="inner2">
+                <img src="/img/avatar.png" alt="Avatar">
+                <div class="avatar-info">
+                    <h2 id="player2-name">Jugador 2</h2>
+                    <p>Puntaje: X puntos</p>
+                </div>
+            </div>
+        </div>
 
 
 
-	<div class="memory-game">
-		<div class="memory-card" data-framework="a">
-			<img class="back-face" src="img/a.png">
-			<img class="front-face" src="img/front.png">
-		</div>
-		<div class="memory-card" data-framework="b">
-			<img class="back-face" src="img/b.png">
-			<img class="front-face" src="img/front.png">
-		</div>
-		<div class="memory-card" data-framework="c">
-			<img class="back-face" src="img/c.png">
-			<img class="front-face" src="img/front.png">
-		</div>
-		<div class="memory-card" data-framework="d">
-			<img class="back-face" src="img/d.png">
-			<img class="front-face" src="img/front.png">
-		</div>
-		<div class="memory-card" data-framework="e">
-			<img class="back-face" src="img/e.png">
-			<img class="front-face" src="img/front.png">
-		</div>
-		<div class="memory-card" data-framework="f">
-			<img class="back-face" src="img/f.png">
-			<img class="front-face" src="img/front.png">
-		</div>
-		<div class="memory-card" data-framework="g">
-			<img class="back-face" src="img/g.png">
-			<img class="front-face" src="img/front.png">
-		</div>
-		<div class="memory-card" data-framework="h">
-			<img class="back-face" src="img/h.png">
-			<img class="front-face" src="img/front.png">
-		</div>
-		<div class="memory-card" data-framework="i">
-			<img class="back-face" src="img/i.png">
-			<img class="front-face" src="img/front.png">
-		</div>
-		<div class="memory-card" data-framework="a">
-			<img class="back-face" src="img/a.png">
-			<img class="front-face" src="img/front.png">
-		</div>
-		<div class="memory-card" data-framework="b">
-			<img class="back-face" src="img/b.png">
-			<img class="front-face" src="img/front.png">
-		</div>
-		<div class="memory-card" data-framework="c">
-			<img class="back-face" src="img/c.png">
-			<img class="front-face" src="img/front.png">
-		</div>
-		<div class="memory-card" data-framework="d">
-			<img class="back-face" src="img/d.png">
-			<img class="front-face" src="img/front.png">
-		</div>
-		<div class="memory-card" data-framework="e">
-			<img class="back-face" src="imfrontbg/e.png">
-			<img class="front-face" src="img/front.png">
-		</div>
-		<div class="memory-card" data-framework="f">
-			<img class="back-face" src="img/f.png">
-			<img class="front-face" src="img/front.png">
-		</div>
-		<div class="memory-card" data-framework="g">
-			<img class="back-face" src="img/g.png">
-			<img class="front-face" src="img/front.png">
-		</div>
-		<div class="memory-card" data-framework="h">
-			<img class="back-face" src="img/h.png">
-			<img class="front-face" src="img/front.png">
-		</div>
-		<div class="memory-card" data-framework="i">
-			<img class="back-face" src="img/i.png">
-			<img class="front-face" src="img/front.png">
-		</div>
-	</div>
-	<div class="overlay">
-		<div class="popup">
-			<form id="player-form">
-				<label for="player1">Nombre del Jugador 1</label>
-				<input type="text" id="player1" name="player1">
-				<label for="player2">Nombre del Jugador 2</label>
-				<input type="text" id="player2" name="player2">
-				<button type="submit">Comenzar Juego</button>
-			</form>
-		</div>
-	</div>
-	<script>
-		const form = document.getElementById("player-form");
-		const player1Name = document.getElementById("player1-name");
-		const player2Name = document.getElementById("player2-name");
+        <div class="memory-game">
+            <div class="memory-card" data-framework="a">
+                <img class="back-face" src="img/a.png">
+                <img class="front-face" src="img/front.png">
+            </div>
+            <div class="memory-card" data-framework="b">
+                <img class="back-face" src="img/b.png">
+                <img class="front-face" src="img/front.png">
+            </div>
+            <div class="memory-card" data-framework="c">
+                <img class="back-face" src="img/c.png">
+                <img class="front-face" src="img/front.png">
+            </div>
+            <div class="memory-card" data-framework="d">
+                <img class="back-face" src="img/d.png">
+                <img class="front-face" src="img/front.png">
+            </div>
+            <div class="memory-card" data-framework="e">
+                <img class="back-face" src="img/e.png">
+                <img class="front-face" src="img/front.png">
+            </div>
+            <div class="memory-card" data-framework="f">
+                <img class="back-face" src="img/f.png">
+                <img class="front-face" src="img/front.png">
+            </div>
+            <div class="memory-card" data-framework="g">
+                <img class="back-face" src="img/g.png">
+                <img class="front-face" src="img/front.png">
+            </div>
+            <div class="memory-card" data-framework="h">
+                <img class="back-face" src="img/h.png">
+                <img class="front-face" src="img/front.png">
+            </div>
+            <div class="memory-card" data-framework="i">
+                <img class="back-face" src="img/i.png">
+                <img class="front-face" src="img/front.png">
+            </div>
+            <div class="memory-card" data-framework="a">
+                <img class="back-face" src="img/a.png">
+                <img class="front-face" src="img/front.png">
+            </div>
+            <div class="memory-card" data-framework="b">
+                <img class="back-face" src="img/b.png">
+                <img class="front-face" src="img/front.png">
+            </div>
+            <div class="memory-card" data-framework="c">
+                <img class="back-face" src="img/c.png">
+                <img class="front-face" src="img/front.png">
+            </div>
+            <div class="memory-card" data-framework="d">
+                <img class="back-face" src="img/d.png">
+                <img class="front-face" src="img/front.png">
+            </div>
+            <div class="memory-card" data-framework="e">
+                <img class="back-face" src="imfrontbg/e.png">
+                <img class="front-face" src="img/front.png">
+            </div>
+            <div class="memory-card" data-framework="f">
+                <img class="back-face" src="img/f.png">
+                <img class="front-face" src="img/front.png">
+            </div>
+            <div class="memory-card" data-framework="g">
+                <img class="back-face" src="img/g.png">
+                <img class="front-face" src="img/front.png">
+            </div>
+            <div class="memory-card" data-framework="h">
+                <img class="back-face" src="img/h.png">
+                <img class="front-face" src="img/front.png">
+            </div>
+            <div class="memory-card" data-framework="i">
+                <img class="back-face" src="img/i.png">
+                <img class="front-face" src="img/front.png">
+            </div>
+        </div>
+        <div class="overlay">
+            <div class="popup">
+                <form id="player-form">
+                    <label for="player1">Nombre del Jugador 1</label>
+                    <input type="text" id="player1" name="player1">
+                    <label for="player2">Nombre del Jugador 2</label>
+                    <input type="text" id="player2" name="player2">
+                    <button type="submit">Comenzar Juego</button>
+                </form>
+            </div>
+        </div>
+        <script>
+            const form = document.getElementById("player-form");
+            const player1Name = document.getElementById("player1-name");
+            const player2Name = document.getElementById("player2-name");
 
-		form.addEventListener("submit", (event) => {
-			event.preventDefault(); // evita que el formulario se envíe automáticamente
+            form.addEventListener("submit", (event) => {
+                event.preventDefault(); // evita que el formulario se envíe automáticamente
 
-			const player1Input = document.getElementById("player1");
-			const player2Input = document.getElementById("player2");
+                const player1Input = document.getElementById("player1");
+                const player2Input = document.getElementById("player2");
 
-			// actualiza los nombres de los jugadores con los valores del formulario
-			player1Name.innerText = player1Input.value;
-			player2Name.innerText = player2Input.value;
+                // actualiza los nombres de los jugadores con los valores del formulario
+                player1Name.innerText = player1Input.value;
+                player2Name.innerText = player2Input.value;
 
-			// cierra la ventana flotante
-			const overlay = document.querySelector(".overlay");
-			overlay.style.display = "none";
+                // cierra la ventana flotante
+                const overlay = document.querySelector(".overlay");
+                overlay.style.display = "none";
 
-			// Aquí empieza la segunda función
-			const cards = document.querySelectorAll('.memory-card');
+                // Aquí empieza la segunda función
+                const cards = document.querySelectorAll('.memory-card');
 
-			let hasFlippedCard = false;
-			let lockBoard = false;
-			let firstCard, secondCard;
+                let hasFlippedCard = false;
+                let lockBoard = false;
+                let firstCard, secondCard;
 
-			function flipCard() {
-				if (lockBoard) return;
-				if (this === firstCard) return;
+                function flipCard() {
+                    if (lockBoard) return;
+                    if (this === firstCard) return;
 
-				this.classList.add('is-flipped');
+                    this.classList.add('is-flipped');
 
-				if (!hasFlippedCard) {
-					hasFlippedCard = true;
-					firstCard = this;
-					return;
-				}
+                    if (!hasFlippedCard) {
+                        hasFlippedCard = true;
+                        firstCard = this;
+                        return;
+                    }
 
-				secondCard = this;
-				checkForMatch();
-			}
+                    secondCard = this;
+                    checkForMatch();
+                }
 
-			function checkForMatch() {
-				let isMatch = firstCard.dataset.framework === secondCard.dataset.framework;
+                function checkForMatch() {
+                    let isMatch = firstCard.dataset.framework === secondCard.dataset.framework;
 
-				isMatch ? disableCards() : unflipCards();
-			}
+                    isMatch ? disableCards() : unflipCards();
+                }
 
-			function disableCards() {
-				firstCard.removeEventListener('click', flipCard);
-				secondCard.removeEventListener('click', flipCard);
+                function disableCards() {
+                    firstCard.removeEventListener('click', flipCard);
+                    secondCard.removeEventListener('click', flipCard);
 
-				resetBoard();
-			}
+                    resetBoard();
+                }
 
-			function unflipCards() {
-				lockBoard = true;
+                function unflipCards() {
+                    lockBoard = true;
 
-				setTimeout(() => {
-					firstCard.classList.remove('is-flipped');
-					secondCard.classList.remove('is-flipped');
+                    setTimeout(() => {
+                        firstCard.classList.remove('is-flipped');
+                        secondCard.classList.remove('is-flipped');
 
-					resetBoard();
-				}, 1500);
-			}
+                        resetBoard();
+                    }, 1500);
+                }
 
-			function resetBoard() {
-				[hasFlippedCard, lockBoard] = [false, false];
-				[firstCard, secondCard] = [null, null];
-			}
+                function resetBoard() {
+                    [hasFlippedCard, lockBoard] = [false, false];
+                    [firstCard, secondCard] = [null, null];
+                }
 
-			(function shuffle() {
-				cards.forEach(card => {
-					let randomPos = Math.floor(Math.random() * 18);
-					card.style.order = randomPos;
-				});
-			})();
+                (function shuffle() {
+                    cards.forEach(card => {
+                        let randomPos = Math.floor(Math.random() * 18);
+                        card.style.order = randomPos;
+                    });
+                })();
 
-			cards.forEach(card => card.addEventListener('click', flipCard));
-		});
+                cards.forEach(card => card.addEventListener('click', flipCard));
+            });
 
-	</script>
+        </script>
+        <!-- Fin del contenido principal -->
+
+        <!-- Incluímos los scripts de javascript necesarios -->
+        <%- include('fragments/js.ejs') %>
 </body>
 
 </html>
