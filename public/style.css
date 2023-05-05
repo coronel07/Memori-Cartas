@@ -1,8 +1,9 @@
+/* Estilo del fondo del body */
 body {
   background-color: bisque;
 }
 
-/* Define los estilos para la superposición de elementos */
+/* Estilo del overlay para el popup */
 .overlay {
   position: fixed;
   top: 0;
@@ -10,28 +11,33 @@ body {
   width: 100%;
   height: 100%;
   background-color: none;
+  /* fondo transparente */
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
+/* Estilo del popup */
 .popup {
   background-color: white;
   padding: 20px;
   border-radius: 10px;
 }
 
+/* Estilo del formulario dentro del popup */
 .popup form {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
+/* Estilo de las etiquetas del formulario */
 .popup label {
   font-size: 1.2rem;
   margin-bottom: 10px;
 }
 
+/* Estilo de los inputs del formulario */
 .popup input {
   width: 100%;
   padding: 10px;
@@ -41,6 +47,7 @@ body {
   background-color: gainsboro;
 }
 
+/* Estilo del botón del formulario */
 .popup button {
   padding: 10px 20px;
   background-color: blue;
@@ -50,14 +57,14 @@ body {
   cursor: pointer;
 }
 
-/* Define un contenedor flex para el contenido */
+/* Estilo del contenedor de los elementos de la página */
 .contenido {
   width: 100%;
   display: flex;
   flex-wrap: wrap;
 }
 
-/* Define un estilo para los elementos interiores */
+/* Estilo del primer elemento dentro del contenedor */
 .inner1 {
   display: flex;
   align-items: center;
@@ -71,6 +78,7 @@ body {
   border-radius: 5px;
 }
 
+/* Estilo del elemento medio dentro del contenedor */
 .medio {
   display: flex;
   align-items: center;
@@ -82,6 +90,7 @@ body {
   appearance: none;
 }
 
+/* Estilo del segundo elemento dentro del contenedor */
 .inner2 {
   display: flex;
   align-items: center;
@@ -95,14 +104,8 @@ body {
   border-radius: 5px;
 }
 
-/* Agrega estilos para la imagen del avatar */
-.inner1 img {
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  margin-left: 15px;
-}
-
+/* Estilo de la imagen dentro del primer y segundo elemento */
+.inner1 img,
 .inner2 img {
   width: 50px;
   height: 50px;
@@ -110,22 +113,24 @@ body {
   margin-left: 15px;
 }
 
-/* Agrega estilos para la información del avatar */
+/* Estilo del contenedor de información del avatar */
 .avatar-info {
   display: flex;
   flex-direction: column;
 }
 
+/* Estilo del nombre del avatar */
 .avatar-info h2 {
   margin: 0;
 }
 
+/* Estilo de la descripción del avatar */
 .avatar-info p {
   margin: 5px 0 0 0;
   font-size: 14px;
 }
 
-/* Define un contenedor grid para el contenido */
+/* Establece un contenedor flexible y adaptable que contiene las cartas de memoria */
 .memory-game {
   display: flex;
   flex-wrap: wrap;
@@ -135,6 +140,7 @@ body {
   justify-content: center;
 }
 
+/* Establece los estilos de una carta de memoria */
 .memory-card {
   width: 15%;
   height: 0;
@@ -146,18 +152,22 @@ body {
   transition: transform 0.5s;
 }
 
+/* Agrega un cursor al pasar el mouse sobre una carta de memoria */
 .memory-card:hover {
   cursor: pointer;
 }
 
+/* Establece el estilo de una carta de memoria activa (haciendo clic) */
 .memory-card:active {
   transform: scale(0.97);
 }
 
+/* Establece el estilo de una carta de memoria volteada */
 .memory-card.is-flipped {
   transform: rotateY(180deg);
 }
 
+/* Establece los estilos de la cara frontal y trasera de una carta de memoria */
 .front-face,
 .back-face {
   width: 100%;
@@ -176,6 +186,7 @@ body {
   transform: rotateY(180deg);
 }
 
+/* Establece el estilo para los tabs de los jugadores */
 .player-tab {
   display: none;
 }
@@ -192,6 +203,7 @@ img {
   border-radius: 20px;
 }
 
+/* Establece el estilo para el elemento de selección */
 select {
   appearance: none;
   background-color: greenyellow;
@@ -201,7 +213,13 @@ select {
   width: 100px;
 }
 
+/* Establece el estilo para cuando se pasa el mouse o se selecciona el elemento de selección */
 select:hover,
 select:focus {
   outline: none;
+}
+
+/* Establece el estilo para un elemento con la clase "space" */
+.space {
+  opacity: 0;
 }

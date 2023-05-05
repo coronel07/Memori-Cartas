@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css">
-	<title>Memory</title>
+    <title>Memory</title>
     <!-- Incluímos los estilos css necesarios -->
     <%- include('fragments/css.ejs') %>
         <title>ExpressJsBase</title>
@@ -41,8 +41,8 @@
                 </div>
             </div>
         </div>
-
-
+        <div class="space">Space</div>
+        <div class="space">Space</div>
 
         <div class="memory-game">
             <div class="memory-card" data-framework="a">
@@ -130,71 +130,82 @@
             </div>
         </div>
         <script>
+            // Selecciona los elementos relevantes del DOM
             const form = document.getElementById("player-form");
             const player1Name = document.getElementById("player1-name");
             const player2Name = document.getElementById("player2-name");
 
+            // Agrega un evento al formulario para comenzar el juego
             form.addEventListener("submit", (event) => {
-                event.preventDefault(); // evita que el formulario se envíe automáticamente
+                event.preventDefault();
 
-                const player1Input = document.getElementById("player1");
-                const player2Input = document.getElementById("player2");
-
-                // actualiza los nombres de los jugadores con los valores del formulario
-                player1Name.innerText = player1Input.value;
-                player2Name.innerText = player2Input.value;
-
-                // cierra la ventana flotante
-                const overlay = document.querySelector(".overlay");
-                overlay.style.display = "none";
-
-                // Aquí empieza la segunda función
+                // Selecciona las cartas y define algunas variables del juego
                 const cards = document.querySelectorAll('.memory-card');
-
                 let hasFlippedCard = false;
                 let lockBoard = false;
                 let firstCard, secondCard;
 
+                // Asigna los nombres de los jugadores
+                const player1Input = document.getElementById("player1");
+                const player2Input = document.getElementById("player2");
+                player1Name.innerText = player1Input.value;
+                player2Name.innerText = player2Input.value;
+
+                // Oculta la superposición de la pantalla de inicio
+                const overlay = document.querySelector(".overlay");
+                overlay.style.display = "none";
+                // Mezcla las cartas al azar
+                (function shuffle() {
+                    cards.forEach(card => {
+                        let randomPos = Math.floor(Math.random() * 18);
+                        card.style.order = randomPos;
+                    });
+                })();
+
+                // Agrega un evento clic a cada carta para voltearla
+                cards.forEach(card => card.addEventListener('click', flipCard));
+                // Función que se activa cuando se hace clic en una carta
                 function flipCard() {
                     if (lockBoard) return;
                     if (this === firstCard) return;
-
                     this.classList.add('is-flipped');
-
                     if (!hasFlippedCard) {
+                        // Almacena la primera carta volcada
                         hasFlippedCard = true;
                         firstCard = this;
                         return;
                     }
 
+                    // Almacena la segunda carta volcada y verifica si las cartas coinciden
                     secondCard = this;
                     checkForMatch();
-                }
 
+                }
+                // Función que verifica si las dos cartas volcadas coinciden
                 function checkForMatch() {
                     let isMatch = firstCard.dataset.framework === secondCard.dataset.framework;
-
                     isMatch ? disableCards() : unflipCards();
                 }
 
+                // Función que bloquea las cartas si coinciden
                 function disableCards() {
                     firstCard.removeEventListener('click', flipCard);
                     secondCard.removeEventListener('click', flipCard);
-
                     resetBoard();
                 }
 
+                // Función que voltea las cartas de nuevo si no coinciden
                 function unflipCards() {
                     lockBoard = true;
 
                     setTimeout(() => {
                         firstCard.classList.remove('is-flipped');
                         secondCard.classList.remove('is-flipped');
-
                         resetBoard();
                     }, 1500);
                 }
 
+                // Función que restablece algunas variables del juego
                 function resetBoard() {
                     [hasFlippedCard, lockBoard] = [false, false];
                     [firstCard, secondCard] = [null, null];
