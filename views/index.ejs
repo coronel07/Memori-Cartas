@@ -27,13 +27,13 @@
                 </div>
             </div>
             <div class="medio">
-                <select>
-                    <option value="opcion1">Hello Kytty</option>
-                    <option value="opction2">World Cup</option>
-                </select>
-            </div>
+        <select id="opciones">
+            <option value="opcion1">Hello Kitty</option>
+            <option value="opcion2">World Cup</option>
+        </select>
+    </div>
 
-            <div class="inner2">
+            <div class="inner2">    
                 <img src="/img/avatar.png" alt="Avatar">
                 <div class="avatar-info">
                     <h2 id="player2-name">Jugador 2</h2>
@@ -44,80 +44,82 @@
         <div class="space">Space</div>
         <div class="space">Space</div>
 
+        
         <div class="memory-game">
             <div class="memory-card" data-framework="a">
-                <img class="back-face" src="img/a.png">
+                <img class="back-face" src="img/aire.png">
                 <img class="front-face" src="img/front.png">
             </div>
             <div class="memory-card" data-framework="b">
-                <img class="back-face" src="img/b.png">
+                <img class="back-face" src="img/arriba.png">
                 <img class="front-face" src="img/front.png">
             </div>
             <div class="memory-card" data-framework="c">
-                <img class="back-face" src="img/c.png">
+                <img class="back-face" src="img/besa.png">
                 <img class="front-face" src="img/front.png">
             </div>
             <div class="memory-card" data-framework="d">
-                <img class="back-face" src="img/d.png">
+                <img class="back-face" src="img/dibu.png">
                 <img class="front-face" src="img/front.png">
             </div>
             <div class="memory-card" data-framework="e">
-                <img class="back-face" src="img/e.png">
+                <img class="back-face" src="img/llora.png">
                 <img class="front-face" src="img/front.png">
             </div>
             <div class="memory-card" data-framework="f">
-                <img class="back-face" src="img/f.png">
+                <img class="back-face" src="img/martinez.png">
                 <img class="front-face" src="img/front.png">
             </div>
             <div class="memory-card" data-framework="g">
-                <img class="back-face" src="img/g.png">
+                <img class="back-face" src="img/messi.png">
                 <img class="front-face" src="img/front.png">
             </div>
             <div class="memory-card" data-framework="h">
-                <img class="back-face" src="img/h.png">
+                <img class="back-face" src="img/oreja.png">
                 <img class="front-face" src="img/front.png">
             </div>
             <div class="memory-card" data-framework="i">
-                <img class="back-face" src="img/i.png">
+                <img class="back-face" src="img/maria.png">
                 <img class="front-face" src="img/front.png">
             </div>
             <div class="memory-card" data-framework="a">
-                <img class="back-face" src="img/a.png">
+                <img class="back-face" src="img/aire.png">
                 <img class="front-face" src="img/front.png">
             </div>
             <div class="memory-card" data-framework="b">
-                <img class="back-face" src="img/b.png">
+                <img class="back-face" src="img/arriba.png">
                 <img class="front-face" src="img/front.png">
             </div>
             <div class="memory-card" data-framework="c">
-                <img class="back-face" src="img/c.png">
+                <img class="back-face" src="img/besa.png">
                 <img class="front-face" src="img/front.png">
             </div>
             <div class="memory-card" data-framework="d">
-                <img class="back-face" src="img/d.png">
+                <img class="back-face" src="img/dibu.png">
                 <img class="front-face" src="img/front.png">
             </div>
             <div class="memory-card" data-framework="e">
-                <img class="back-face" src="imfrontbg/e.png">
+                <img class="back-face" src="img/llora.png">
                 <img class="front-face" src="img/front.png">
             </div>
             <div class="memory-card" data-framework="f">
-                <img class="back-face" src="img/f.png">
+                <img class="back-face" src="img/martinez.png">
                 <img class="front-face" src="img/front.png">
             </div>
-            <div class="memory-card" data-framework="g">
-                <img class="back-face" src="img/g.png">
+            <div class="memory-card" data-framework="g" data-score="0" data-turned="false">
+                <img class="back-face" src="img/messi.png">
                 <img class="front-face" src="img/front.png">
             </div>
-            <div class="memory-card" data-framework="h">
-                <img class="back-face" src="img/h.png">
+            <div class="memory-card" data-framework="h" data-score="0" data-turned="false">
+                <img class="back-face" src="img/oreja.png">
                 <img class="front-face" src="img/front.png">
             </div>
-            <div class="memory-card" data-framework="i">
-                <img class="back-face" src="img/i.png">
+            <div class="memory-card" data-framework="i" data-score="0" data-turned="false">
+                <img class="back-face" src="img/maria.png">
                 <img class="front-face" src="img/front.png">
             </div>
         </div>
+         
         <div class="overlay">
             <div class="popup">
                 <form id="player-form">
@@ -223,9 +225,6 @@
 
         </script>
         <!-- Fin del contenido principal -->
-
-        <!-- Incluímos los scripts de javascript necesarios -->
-        <%- include('fragments/js.ejs') %>
-</body>
+       
 
 </html>
