@@ -223,3 +223,7 @@ select:focus {
 .space {
   opacity: 0;
 }
+
+.turn {
+  text-align: center;
+}

@@ -41,6 +41,10 @@
                 </div>
             </div>
         </div>
+
+        <h4 class="turn">Turno del jugador: <span id="current-player-name"></span></h4>
+
+
         <div class="space">Space</div>
         <div class="space">Space</div>
 
@@ -133,29 +137,38 @@
         </div>
         <script>
             // Selecciona los elementos relevantes del DOM
-            const form = document.getElementById("player-form");
-            const player1Name = document.getElementById("player1-name");
-            const player2Name = document.getElementById("player2-name");
+const form = document.getElementById("player-form");
+const player1Name = document.getElementById("player1-name");
+const player2Name = document.getElementById("player2-name");
+const currentPlayerName = document.getElementById("current-player-name");
 
-            // Agrega un evento al formulario para comenzar el juego
-            form.addEventListener("submit", (event) => {
-                event.preventDefault();
+// Agrega un evento al formulario para comenzar el juego
+form.addEventListener("submit", (event) => {
+    event.preventDefault();
 
-                // Selecciona las cartas y define algunas variables del juego
-                const cards = document.querySelectorAll('.memory-card');
+    // Asigna los nombres de los jugadores
+    const player1Input = document.getElementById("player1");
+    const player2Input = document.getElementById("player2");
+    const player1 = player1Input.value;
+    const player2 = player2Input.value;
+
+    // Selecciona las cartas y define algunas variables del juego
+    const cards = document.querySelectorAll('.memory-card');
                 let hasFlippedCard = false;
                 let lockBoard = false;
                 let firstCard, secondCard;
 
-                // Asigna los nombres de los jugadores
-                const player1Input = document.getElementById("player1");
-                const player2Input = document.getElementById("player2");
-                player1Name.innerText = player1Input.value;
-                player2Name.innerText = player2Input.value;
+    player1Name.innerText = player1;
+    player2Name.innerText = player2;
 
-                // Oculta la superposición de la pantalla de inicio
-                const overlay = document.querySelector(".overlay");
-                overlay.style.display = "none";
+    // Oculta la superposición de la pantalla de inicio
+    const overlay = document.querySelector(".overlay");
+    overlay.style.display = "none";
+
+    // Muestra el nombre del jugador actual
+    currentPlayerName.innerText = player1;
+
+
                 // Mezcla las cartas al azar
                 (function shuffle() {
                     cards.forEach(card => {
@@ -226,5 +239,4 @@
         </script>
         <!-- Fin del contenido principal -->
        
-
 </html>
