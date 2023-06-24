@@ -1,29 +1,42 @@
 {
-    "name": "expressbase",
-    "version": "1.0.0",
-    "description": "Proyecto con estructura recomendada para comenzar nuevos proyectos con ExpressJs",
-    "main": "server.js",
-    "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1",
-        "dev": "node server.js"
-    },
-    "keywords": [
-        "expressJs",
-        "base"
-    ],
-    "author": "Lic. García Héctor",
-    "license": "ISC",
-    "dependencies": {
-        "dotenv": "^16.0.0",
-        "ejs": "^3.1.6",
-        "express": "^4.17.3",
-        "jspdf": "^2.5.1",
-        "moment": "^2.29.1",
-        "mongoose": "^6.2.6",
-        "morgan": "^1.10.0",
-        "path": "^0.12.7"
-    },
-    "devDependencies": {
-        "nodemon": "^2.0.15"
-    }
+  "name": "memorti-cartas",
+  "version": "1.0.0",
+  "description": "Proyecto con estructura recomendada para comenzar nuevos proyectos con ExpressJs",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "node server.js",
+    "start": "node server.js"
+  },
+  "keywords": [
+    "expressJs",
+    "base"
+  ],
+  "author": "Lic. García Héctor",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "dotenv": "^16.0.0",
+    "ejs": "^3.1.6",
+    "express": "^4.18.2",
+    "jspdf": "^2.5.1",
+    "moment": "^2.29.1",
+    "mongodb": "^5.6.0",
+    "mongoose": "^6.2.6",
+    "morgan": "^1.10.0",
+    "multer": "^1.4.5-lts.1",
+    "mysql": "^2.18.1",
+    "path": "^0.12.7"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/coronel07/Memori-Cartas.git"
+  },
+  "bugs": {
+    "url": "https://github.com/coronel07/Memori-Cartas/issues"
+  },
+  "homepage": "https://github.com/coronel07/Memori-Cartas#readme"
 }
