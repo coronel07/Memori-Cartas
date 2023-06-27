@@ -3,17 +3,21 @@ const app = express();
 const multer = require("multer");
 const fs = require("fs");
 const { MongoClient, ObjectId } = require("mongodb");
+const { render } = require("ejs");
 
 app.use(express.urlencoded({ extended: true }));
 
 const upload = multer({ dest: "uploads/img" });
 
-const myurl = "mongodb://localhost:27017"; // Cambiado el puerto a 27017
+const uri = "mongodb+srv://Lauti888:cuesta@lautaro.ksoark8.mongodb.net/?retryWrites=true&w=majority";
+
+const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
+
 const dbName = "test";
 
-MongoClient.connect(myurl, (err, client) => {
+client.connect((err) => {
   if (err) return console.log(err);
-  console.log("Connected to MongoDB successfully");
+  console.log("Connected to MongoDB Atlas successfully");
 
   const db = client.db(dbName);
 
@@ -49,12 +53,16 @@ MongoClient.connect(myurl, (err, client) => {
         res.send(result.image.buffer);
       }
     );
-  });
+  })
 
-  const port = 2500;
-  app.listen(port, () => {
-    console.log(`Server running on port ${port}`);
-  });
+    app.get("/addImg", (req, res) => {
+    res.status(200).render('index');
+  })
+
+
 });
 
-
+const port = 2500;
+app.listen(port, () => {
+  console.log(`Server running on port ${port}`);
+});

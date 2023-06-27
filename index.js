@@ -14,13 +14,11 @@ app.set("views", path.join(__dirname, "views"));
 app.use(morgan("dev"));
 app.use(express.json());
 
-//Configurando archivos estáticos
+// Configurando archivos estáticos
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, "public")));
 
-const dbURI =
-  "mongodb+srv://nikecolas:nicolas07-@cluster01.bm0bl64.mongodb.net/?retryWrites=true&w=majority";
-
+const dbURI = "mongodb://localhost:27017/memori_cartas";
 
 mongoose
   .connect(dbURI, {
@@ -28,54 +26,49 @@ mongoose
     useUnifiedTopology: true,
   })
   .then(() => {
-    console.log("Connected to Mongoose");
+    console.log("Connected to MongoDB");
+    app.listen(port, () => {
+      console.log(`Example app listening on port ${port}`);
+    });
   })
   .catch((err) => {
-    console.error("Error connecting to Mongoose", err);
+    console.error("Error connecting to MongoDB", err);
   });
+
+// Definir el esquema del modelo 'Carta'
+const cartaSchema = new mongoose.Schema({
+  nombre: String,
+  contenido: String,
+});
+
+// Crear el modelo 'Carta' basado en el esquema
+const Carta = mongoose.model("Carta", cartaSchema);
+
 app.get("/", (req, res) => {
-  res.render("index");
+  Carta.find()
+    .then((cartas) => {
+      res.render("index", { cartas });
+    })
+    .catch((err) => {
+      console.error("Error retrieving cartas", err);
+      res.render("index", { cartas: [] });
+    });
 });
 
-app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`);
-});
-var mongoose = require('mongoose');
-var Author = require('./author');
-var Book = require('./book');
+app.post("/cartas", (req, res) => {
+  const { nombre, contenido } = req.body;
+  const nuevaCarta = new Carta({ nombre, contenido });
 
-mongoose.connect('mongodb://localhost/mongoose_basics', function (err) {
-    if (err) throw err;
-	
-	console.log('Successfully connected');
-	
-	Book.find({
-		title: /mvc/i
-	}).sort('-created')
-	.limit(5)
-	.exec(function(err, books) {
-		if (err) throw err;
-		
-		console.log(books);
-	});
-	
-	Author.findById('59b31406beefa1082819e72f', function(err, author) {
-		if (err) throw err;
-		
-		author.linkedin = 'https://www.linkedin.com/in/jamie-munro-8064ba1a/';
-		
-		author.save(function(err) {
-			if (err) throw err;
-			
-			console.log('Author updated successfully');
-		});
-	});
-	
-	Author.findByIdAndUpdate('59b31406beefa1082819e72f', { linkedin: 'https://www.linkedin.com/in/jamie-munro-8064ba1a/' }, function(err, author) {
-		if (err) throw err;
-		
-		console.log(author);
-	});
+  nuevaCarta
+    .save()
+    .then(() => {
+      res.redirect("/");
+    })
+    .catch((err) => {
+      console.error("Error creating carta", err);
+      res.redirect("/");
+    });
 });
+
 
 
