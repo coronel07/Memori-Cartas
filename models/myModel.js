@@ -2,26 +2,18 @@
 const mongoose = require("mongoose");
 
 //Creación del Schema Post
-const postSchema = new mongoose.Schema({
-    title: {
+const cardSchema = new mongoose.Schema({
+    name: {
         type: String,
-        required: [true, "Un post debe tener un título"],
+        required: true
     },
-    description: {
+    ruta: {
         type: String,
-        required: [true, "Un post debe tener una descripción"],
-    },
-    date: {
-        type: Date,
-        required: [true, "Un post debe tener una fecha"],
-    },
-    technologies: {
-        type: [String],
-        required: [true, "Un post debe contar con tecnologías"],
+        required: true
     },
 });
 
 //Creación del modelo Post
-const Post = mongoose.model("Post", postSchema);
+const Card = mongoose.model("Card", cardSchema);
 
-module.exports = Post;
+module.exports = Card;

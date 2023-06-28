@@ -6,5 +6,6 @@ const server = require('server.js');
 
 //Defino rutas y acciones de respuesta
 router.route('/').get(myController.inicio);
+router.route("/cartas").post(myController.crearCarta);
 
 module.exports = router;

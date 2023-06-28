@@ -1,26 +1,30 @@
-const OneModel = require('../models/myModel');
-const moment = require('moment');
-const Post = require('../models/myModel');
+const Card = require('../models/myModel.js');
 
 //Ejemplo de respuesta a una petición de tipo GET
 exports.inicio = (req, res) => {
-    //crear un documento con mongoose
-    res.status(200).render('index');
+  //crear un documento con mongoose
+  res.status(200).render('index');
 };
 
-// Crear un nuevo objeto "Post"
-const newPost = new Post({
-    title: "Mi nuevo post",
-    description: "Por fin anda pa ",
-    date: new Date(),
-    name:'Nicolas'
-  });
+exports.crearCarta = async (req, res) => {
+ const cartas =  [
+    { name: "aire", ruta: "img/aire.png" },
+    { name: "arriba", ruta: "img/arriba.png" },
+    { name: "besa", ruta: "img/besa.png" },
+    { name: "dibu", ruta: "img/dibu.png" },
+    { name: "llora", ruta: "img/llora.png" },
+    { name: "maria", ruta: "img/maria.png" },
+    { name: "matinez", ruta: "img/martinez.png" },
+    { name: "messi", ruta: "img/messi.png" },
+    { name: "oreja", ruta: "img/oreja.png" },
+  ];
+  for (const cartaObj of cartas) {
+  const carta = new Card(cartaObj);
+  await carta.save();
+  }
+}
+
+
   
-  // Guardar el objeto "Post" en la base de datos
-  newPost.save((err) => {
-    if (err) {
-      console.log(err);
-    } else {
-      console.log("Nuevo post guardado en la base de datos.");
-    }
-  });
+
+  
