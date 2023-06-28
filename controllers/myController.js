@@ -19,10 +19,21 @@ exports.crearCarta = async (req, res) => {
     { name: "oreja", ruta: "img/oreja.png" },
   ];
   for (const cartaObj of cartas) {
-  const carta = new Card(cartaObj);
-  await carta.save();
+    const carta = new Card(cartaObj);
+    await carta.save();
   }
+  res.status(200).send('Existoso');
 }
+
+exports.addImgForm = (req, res) => {
+  //crear un documento con mongoose
+  res.status(200).render('addImg');
+};
+
+exports.addImg = (req, res) => {
+  //crear un documento con mongoose
+  res.status(200).render('addImg');
+};
 
 
   

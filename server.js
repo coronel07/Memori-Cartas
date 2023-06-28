@@ -1,11 +1,10 @@
-const express = require("express");
-const app = express();
+const app = require("./app")
 const multer = require("multer");
 const fs = require("fs");
 const { MongoClient, ObjectId } = require("mongodb");
 const { render } = require("ejs");
 
-app.use(express.urlencoded({ extended: true }));
+//app.use(express.urlencoded({ extended: true }));
 
 const upload = multer({ dest: "uploads/img" });
 
@@ -53,10 +52,6 @@ client.connect((err) => {
         res.send(result.image.buffer);
       }
     );
-  })
-
-    app.get("/addImg", (req, res) => {
-    res.status(200).render('index');
   })
 
 
