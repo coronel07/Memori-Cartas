@@ -1,13 +1,13 @@
 const myController = require('../controllers/myController');
 const express = require('express');
 const router = express.Router();
-//const server = require('server.js');
+// const server = require('server.js');
 
-
-//Defino rutas y acciones de respuesta
+// Define routes and corresponding controller actions
 router.route('/').get(myController.inicio);
-router.route("/cartas").post(myController.crearCarta);
-router.route("/addImg").get(myController.addImgForm);
-router.route("/addImg").post(myController.addImg);
+router.route('/cartas').post(myController.crearCarta);
+//router.route('/addImg').post(myController.addImgForm);
+router.route('/uploadphoto').post(myController.uploadphoto);
+router.route('/photo/:id').get(myController.getimg);
 
 module.exports = router;
