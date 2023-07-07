@@ -13,247 +13,245 @@
 </head>
 
 <body>
-    <!-- Navbar del sitio -->
-    <%- include('fragments/navbar') %>
-        <!-- Fin del navbar del sitio -->
 
-        <!-- Contenido principal -->
-        <div class="contenido">
-            <div class="inner1">
-                <img src="/img/avatar.png" alt="Avatar">
-                <div class="avatar-info">
-                    <h2 id="player1-name">Jugador 1</h2>
-                    <p>Puntaje: X puntos</p>
-                </div>
+
+    <!-- Contenido principal -->
+    <div class="contenido">
+        <div class="inner1">
+            <img src="/img/avatar.png" alt="Avatar">
+            <div class="avatar-info">
+                <h2 id="player1-name">Jugador 1</h2>
+                <p>Puntaje: X puntos</p>
             </div>
-            <div class="medio">
-        <select id="opciones">
-            <option value="opcion1">Hello Kitty</option>
-            <option value="opcion2">World Cup</option>
-        </select>
+        </div>
+        <div class="medio">
+            <select id="opciones">
+                <option value="opcion1">Hello Kitty</option>
+                <option value="opcion2">World Cup</option>
+            </select>
+        </div>
+
+        <div class="inner2">
+            <img src="/img/avatar.png" alt="Avatar">
+            <div class="avatar-info">
+                <h2 id="player2-name">Jugador 2</h2>
+                <p>Puntaje: X puntos</p>
+            </div>
+        </div>
     </div>
 
-            <div class="inner2">    
-                <img src="/img/avatar.png" alt="Avatar">
-                <div class="avatar-info">
-                    <h2 id="player2-name">Jugador 2</h2>
-                    <p>Puntaje: X puntos</p>
-                </div>
-            </div>
+    <h4 class="turn">Turno del jugador: <span id="current-player-name"></span></h4>
+
+
+    <div class="space">Space</div>
+    <div class="space">Space</div>
+
+
+    <div class="memory-game">
+        <div class="memory-card" data-framework="a">
+            <img class="back-face" src="img/aire.png">
+            <img class="front-face" src="img/front.png">
         </div>
-
-        <h4 class="turn">Turno del jugador: <span id="current-player-name"></span></h4>
-
-
-        <div class="space">Space</div>
-        <div class="space">Space</div>
-
-        
-        <div class="memory-game">
-            <div class="memory-card" data-framework="a">
-                <img class="back-face" src="img/aire.png">
-                <img class="front-face" src="img/front.png">
-            </div>
-            <div class="memory-card" data-framework="b">
-                <img class="back-face" src="img/arriba.png">
-                <img class="front-face" src="img/front.png">
-            </div>
-            <div class="memory-card" data-framework="c">
-                <img class="back-face" src="img/besa.png">
-                <img class="front-face" src="img/front.png">
-            </div>
-            <div class="memory-card" data-framework="d">
-                <img class="back-face" src="img/dibu.png">
-                <img class="front-face" src="img/front.png">
-            </div>
-            <div class="memory-card" data-framework="e">
-                <img class="back-face" src="img/llora.png">
-                <img class="front-face" src="img/front.png">
-            </div>
-            <div class="memory-card" data-framework="f">
-                <img class="back-face" src="img/martinez.png">
-                <img class="front-face" src="img/front.png">
-            </div>
-            <div class="memory-card" data-framework="g">
-                <img class="back-face" src="img/messi.png">
-                <img class="front-face" src="img/front.png">
-            </div>
-            <div class="memory-card" data-framework="h">
-                <img class="back-face" src="img/oreja.png">
-                <img class="front-face" src="img/front.png">
-            </div>
-            <div class="memory-card" data-framework="i">
-                <img class="back-face" src="img/maria.png">
-                <img class="front-face" src="img/front.png">
-            </div>
-            <div class="memory-card" data-framework="a">
-                <img class="back-face" src="img/aire.png">
-                <img class="front-face" src="img/front.png">
-            </div>
-            <div class="memory-card" data-framework="b">
-                <img class="back-face" src="img/arriba.png">
-                <img class="front-face" src="img/front.png">
-            </div>
-            <div class="memory-card" data-framework="c">
-                <img class="back-face" src="img/besa.png">
-                <img class="front-face" src="img/front.png">
-            </div>
-            <div class="memory-card" data-framework="d">
-                <img class="back-face" src="img/dibu.png">
-                <img class="front-face" src="img/front.png">
-            </div>
-            <div class="memory-card" data-framework="e">
-                <img class="back-face" src="img/llora.png">
-                <img class="front-face" src="img/front.png">
-            </div>
-            <div class="memory-card" data-framework="f">
-                <img class="back-face" src="img/martinez.png">
-                <img class="front-face" src="img/front.png">
-            </div>
-            <div class="memory-card" data-framework="g" data-score="0" data-turned="false">
-                <img class="back-face" src="img/messi.png">
-                <img class="front-face" src="img/front.png">
-            </div>
-            <div class="memory-card" data-framework="h" data-score="0" data-turned="false">
-                <img class="back-face" src="img/oreja.png">
-                <img class="front-face" src="img/front.png">
-            </div>
-            <div class="memory-card" data-framework="i" data-score="0" data-turned="false">
-                <img class="back-face" src="img/maria.png">
-                <img class="front-face" src="img/front.png">
-            </div>
+        <div class="memory-card" data-framework="b">
+            <img class="back-face" src="img/arriba.png">
+            <img class="front-face" src="img/front.png">
         </div>
-         
-        <div class="overlay">
-            <div class="popup">
-                <form id="player-form">
-                    <label for="player1">Nombre del Jugador 1</label>
-                    <input type="text" id="player1" name="player1">
-                    <label for="player2">Nombre del Jugador 2</label>
-                    <input type="text" id="player2" name="player2">
-                    <button type="submit">Comenzar Juego</button>
-                </form>
-            </div>
+        <div class="memory-card" data-framework="c">
+            <img class="back-face" src="img/besa.png">
+            <img class="front-face" src="img/front.png">
         </div>
-        <script>
-            // Selecciona los elementos relevantes del DOM
-const form = document.getElementById("player-form");
-const player1Name = document.getElementById("player1-name");
-const player2Name = document.getElementById("player2-name");
-const currentPlayerName = document.getElementById("current-player-name");
+        <div class="memory-card" data-framework="d">
+            <img class="back-face" src="img/dibu.png">
+            <img class="front-face" src="img/front.png">
+        </div>
+        <div class="memory-card" data-framework="e">
+            <img class="back-face" src="img/llora.png">
+            <img class="front-face" src="img/front.png">
+        </div>
+        <div class="memory-card" data-framework="f">
+            <img class="back-face" src="img/martinez.png">
+            <img class="front-face" src="img/front.png">
+        </div>
+        <div class="memory-card" data-framework="g">
+            <img class="back-face" src="img/messi.png">
+            <img class="front-face" src="img/front.png">
+        </div>
+        <div class="memory-card" data-framework="h">
+            <img class="back-face" src="img/oreja.png">
+            <img class="front-face" src="img/front.png">
+        </div>
+        <div class="memory-card" data-framework="i">
+            <img class="back-face" src="img/maria.png">
+            <img class="front-face" src="img/front.png">
+        </div>
+        <div class="memory-card" data-framework="a">
+            <img class="back-face" src="img/aire.png">
+            <img class="front-face" src="img/front.png">
+        </div>
+        <div class="memory-card" data-framework="b">
+            <img class="back-face" src="img/arriba.png">
+            <img class="front-face" src="img/front.png">
+        </div>
+        <div class="memory-card" data-framework="c">
+            <img class="back-face" src="img/besa.png">
+            <img class="front-face" src="img/front.png">
+        </div>
+        <div class="memory-card" data-framework="d">
+            <img class="back-face" src="img/dibu.png">
+            <img class="front-face" src="img/front.png">
+        </div>
+        <div class="memory-card" data-framework="e">
+            <img class="back-face" src="img/llora.png">
+            <img class="front-face" src="img/front.png">
+        </div>
+        <div class="memory-card" data-framework="f">
+            <img class="back-face" src="img/martinez.png">
+            <img class="front-face" src="img/front.png">
+        </div>
+        <div class="memory-card" data-framework="g" data-score="0" data-turned="false">
+            <img class="back-face" src="img/messi.png">
+            <img class="front-face" src="img/front.png">
+        </div>
+        <div class="memory-card" data-framework="h" data-score="0" data-turned="false">
+            <img class="back-face" src="img/oreja.png">
+            <img class="front-face" src="img/front.png">
+        </div>
+        <div class="memory-card" data-framework="i" data-score="0" data-turned="false">
+            <img class="back-face" src="img/maria.png">
+            <img class="front-face" src="img/front.png">
+        </div>
+    </div>
+
+    <div class="overlay">
+        <div class="popup">
+            <form id="player-form">
+                <label for="player1">Nombre del Jugador 1</label>
+                <input type="text" id="player1" name="player1">
+                <label for="player2">Nombre del Jugador 2</label>
+                <input type="text" id="player2" name="player2">
+                <button type="submit">Comenzar Juego</button>
+            </form>
+        </div>
+    </div>
+    <script>
+        // Selecciona los elementos relevantes del DOM
+        const form = document.getElementById("player-form");
+        const player1Name = document.getElementById("player1-name");
+        const player2Name = document.getElementById("player2-name");
+        const currentPlayerName = document.getElementById("current-player-name");
 
 
-// Agrega un evento al formulario para comenzar el juego
-form.addEventListener("submit", (event) => {
-    event.preventDefault();
+        // Agrega un evento al formulario para comenzar el juego
+        form.addEventListener("submit", (event) => {
+            event.preventDefault();
 
-    // Asigna los nombres de los jugadores
-    const player1Input = document.getElementById("player1");
-    const player2Input = document.getElementById("player2");
-    const player1 = player1Input.value;
-    const player2 = player2Input.value;
+            // Asigna los nombres de los jugadores
+            const player1Input = document.getElementById("player1");
+            const player2Input = document.getElementById("player2");
+            const player1 = player1Input.value;
+            const player2 = player2Input.value;
 
-    // Selecciona las cartas y define algunas variables del juego
-    const cards = document.querySelectorAll('.memory-card');
-                let hasFlippedCard = false;
-                let lockBoard = false;
-                let firstCard, secondCard;
+            // Selecciona las cartas y define algunas variables del juego
+            const cards = document.querySelectorAll('.memory-card');
+            let hasFlippedCard = false;
+            let lockBoard = false;
+            let firstCard, secondCard;
 
-    player1Name.innerText = player1;
-    player2Name.innerText = player2;
+            player1Name.innerText = player1;
+            player2Name.innerText = player2;
 
-    // Oculta la superposición de la pantalla de inicio
-    const overlay = document.querySelector(".overlay");
-    overlay.style.display = "none";
+            // Oculta la superposición de la pantalla de inicio
+            const overlay = document.querySelector(".overlay");
+            overlay.style.display = "none";
 
-    // Muestra el nombre del jugador actual
-    let playerT = false;
-    currentPlayerName.innerText = player1;
+            // Muestra el nombre del jugador actual
+            let playerT = false;
+            currentPlayerName.innerText = player1;
 
-    function playerTurn() {
-  if (playerT == false) {
-    currentPlayerName.innerText = player2;
-    playerT = false;
-  } else {
-    currentPlayerName.innerText = player1;
-    playerT = true;
-  }
-}
-
-
-
-
-
-
-                // Mezcla las cartas al azar
-                (function shuffle() {
-                    cards.forEach(card => {
-                        let randomPos = Math.floor(Math.random() * 18);
-                        card.style.order = randomPos;
-                    });
-                })();
-
-                // Agrega un evento clic a cada carta para voltearla
-                cards.forEach(card => card.addEventListener('click', flipCard));
-                // Función que se activa cuando se hace clic en una carta
-                function flipCard() {
-                    if (lockBoard) return;
-                    if (this === firstCard) return;
-                    this.classList.add('is-flipped');
-                    if (!hasFlippedCard) {
-                        // Almacena la primera carta volcada
-                        hasFlippedCard = true;
-                        firstCard = this;
-                        return;
-                    }
-
-                    // Almacena la segunda carta volcada y verifica si las cartas coinciden
-                    secondCard = this;
-                    checkForMatch();
-
+            function playerTurn() {
+                if (playerT == false) {
+                    currentPlayerName.innerText = player2;
+                    playerT = false;
+                } else {
+                    currentPlayerName.innerText = player1;
+                    playerT = true;
                 }
-                // Función que verifica si las dos cartas volcadas coinciden
-                function checkForMatch() {
-                    let isMatch = firstCard.dataset.framework === secondCard.dataset.framework;
-                    isMatch ? disableCards() : unflipCards();
+            }
+
+
+
+
+
+
+            // Mezcla las cartas al azar
+            (function shuffle() {
+                cards.forEach(card => {
+                    let randomPos = Math.floor(Math.random() * 18);
+                    card.style.order = randomPos;
+                });
+            })();
+
+            // Agrega un evento clic a cada carta para voltearla
+            cards.forEach(card => card.addEventListener('click', flipCard));
+            // Función que se activa cuando se hace clic en una carta
+            function flipCard() {
+                if (lockBoard) return;
+                if (this === firstCard) return;
+                this.classList.add('is-flipped');
+                if (!hasFlippedCard) {
+                    // Almacena la primera carta volcada
+                    hasFlippedCard = true;
+                    firstCard = this;
+                    return;
                 }
 
-                // Función que bloquea las cartas si coinciden
-                function disableCards() {
-                    firstCard.removeEventListener('click', flipCard);
-                    secondCard.removeEventListener('click', flipCard);
+                // Almacena la segunda carta volcada y verifica si las cartas coinciden
+                secondCard = this;
+                checkForMatch();
+
+            }
+            // Función que verifica si las dos cartas volcadas coinciden
+            function checkForMatch() {
+                let isMatch = firstCard.dataset.framework === secondCard.dataset.framework;
+                isMatch ? disableCards() : unflipCards();
+            }
+
+            // Función que bloquea las cartas si coinciden
+            function disableCards() {
+                firstCard.removeEventListener('click', flipCard);
+                secondCard.removeEventListener('click', flipCard);
+                resetBoard();
+            }
+
+            // Función que voltea las cartas de nuevo si no coinciden
+            function unflipCards() {
+                lockBoard = true;
+
+                setTimeout(() => {
+                    firstCard.classList.remove('is-flipped');
+                    secondCard.classList.remove('is-flipped');
                     resetBoard();
-                }
+                }, 500);
+            }
 
-                // Función que voltea las cartas de nuevo si no coinciden
-                function unflipCards() {
-                    lockBoard = true;
+            // Función que restablece algunas variables del juego
+            function resetBoard() {
+                [hasFlippedCard, lockBoard] = [false, false];
+                [firstCard, secondCard] = [null, null];
+            }
 
-                    setTimeout(() => {
-                        firstCard.classList.remove('is-flipped');
-                        secondCard.classList.remove('is-flipped');
-                        resetBoard();
-                    }, 1500);
-                }
+            (function shuffle() {
+                cards.forEach(card => {
+                    let randomPos = Math.floor(Math.random() * 18);
+                    card.style.order = randomPos;
+                });
+            })();
 
-                // Función que restablece algunas variables del juego
-                function resetBoard() {
-                    [hasFlippedCard, lockBoard] = [false, false];
-                    [firstCard, secondCard] = [null, null];
-                }
-
-                (function shuffle() {
-                    cards.forEach(card => {
-                        let randomPos = Math.floor(Math.random() * 18);
-                        card.style.order = randomPos;
-                    });
-                })();
-
-                cards.forEach(card => card.addEventListener('click', flipCard));
-            });
+            cards.forEach(card => card.addEventListener('click', flipCard));
+        });
 
 
-        </script>
-        <!-- Fin del contenido principal -->
-       
+    </script>
+    <!-- Fin del contenido principal -->
+
 </html>

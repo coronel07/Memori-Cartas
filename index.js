@@ -14,11 +14,11 @@ app.set("views", path.join(__dirname, "views"));
 app.use(morgan("dev"));
 app.use(express.json());
 
-// Configurando archivos estáticos
+//Configurando archivos estáticos
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, "public")));
 
-const dbURI = "mongodb://localhost:27017/memori_cartas";
+const dbURI ="mongodb+srv://nikecolas:nicolas07-@cluster01.bm0bl64.mongodb.net/?retryWrites=true&w=majority";
 
 mongoose
   .connect(dbURI, {
@@ -26,49 +26,15 @@ mongoose
     useUnifiedTopology: true,
   })
   .then(() => {
-    console.log("Connected to MongoDB");
-    app.listen(port, () => {
-      console.log(`Example app listening on port ${port}`);
-    });
+    console.log("Connected to Mongoose");
   })
   .catch((err) => {
-    console.error("Error connecting to MongoDB", err);
+    console.error("Error connecting to Mongoose", err);
   });
-
-// Definir el esquema del modelo 'Carta'
-const cartaSchema = new mongoose.Schema({
-  nombre: String,
-  contenido: String,
-});
-
-// Crear el modelo 'Carta' basado en el esquema
-const Carta = mongoose.model("Carta", cartaSchema);
-
 app.get("/", (req, res) => {
-  Carta.find()
-    .then((cartas) => {
-      res.render("index", { cartas });
-    })
-    .catch((err) => {
-      console.error("Error retrieving cartas", err);
-      res.render("index", { cartas: [] });
-    });
+  res.render("index");
 });
 
-app.post("/cartas", (req, res) => {
-  const { nombre, contenido } = req.body;
-  const nuevaCarta = new Carta({ nombre, contenido });
-
-  nuevaCarta
-    .save()
-    .then(() => {
-      res.redirect("/");
-    })
-    .catch((err) => {
-      console.error("Error creating carta", err);
-      res.redirect("/");
-    });
+app.listen(port, () => {
+  console.log(`Example app listening on port ${port}`);
 });
-
-
-

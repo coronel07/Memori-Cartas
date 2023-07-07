@@ -1,23 +1,26 @@
-const app = require("./app")
 const mongoose = require("mongoose");
-const uri = "mongodb+srv://Lauti888:cuesta@lautaro.ksoark8.mongodb.net/?retryWrites=true&w=majority";
-//const multer = require("multer");
-//const fs = require("fs");
-//const { MongoClient, ObjectId } = require("mongodb");
-//const { render } = require("ejs");
+const app = require("./app");
+const dotenv = require("dotenv");
 
-//app.use(express.urlencoded({ extended: true }));
+//Carga de variables de entorno
+dotenv.config({ path: "./config.env" });
+const DB = process.env.DATABASE.replace("<PASSWORD>", process.env.DATABASE_PASSWORD);
 
+// Conexión al cloud de Mongodb Atlas
 mongoose
-    .connect(uri, {
-        useNewUrlParser: true,
-    })
-    .then((con) => {
-        //console.log(con.connections);
-        console.log("Connected to database");
-    });
- 
+  .connect(DB, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
+  .then(() => {
+    console.log("Connected to Mongoose");
+  })
+  .catch((err) => {
+    console.error("Error connecting to Mongoose", err);
+  });
+
 const port = 2500;
+//Corremos el servidor en el puerto seleccionado
 app.listen(port, () => {
-  console.log(`Server running on port ${port}`);
-}); 
+    console.log(`Servidor corriendo en el puerto ${port} correctamente`);
+});
