@@ -1,6 +1,6 @@
 /* Estilo del fondo del body */
 body {
-  background-color: cyan;
+  background-color: black;
 }
 
 /* Estilo del overlay para el popup */
@@ -10,7 +10,7 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: none;
+  background-color: black;
   /* fondo transparente */
   display: flex;
   justify-content: center;
@@ -20,7 +20,7 @@ body {
 /* Estilo del popup */
 .popup {
   background-color: white;
-  padding: 20px;
+  padding: 30px;
   border-radius: 10px;
 }
 
@@ -83,7 +83,7 @@ body {
   display: flex;
   align-items: center;
   flex: 0, 5;
-  background: greenyellow;
+  background: cyan;
   border: 1px solid black;
   flex-direction: row;
   border-radius: 10px;
@@ -206,7 +206,7 @@ img {
 /* Establece el estilo para el elemento de selección */
 select {
   appearance: none;
-  background-color: greenyellow;
+  background-color: whitesmoke;
   color: black;
   font-size: 16px;
   padding: 8px;
